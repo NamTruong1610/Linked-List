@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build and Run Linked List Tests",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++20",
+                "-g",  // Include debugging information
+                "-isystem", "/opt/homebrew/opt/googletest/include",
+                "/Users/namtruong/Desktop/Projects/Linked_List_Project/Linked_List/myList.cpp",
+                "/Users/namtruong/Desktop/Projects/Linked_List_Project/Linked_List/main.cpp",
+                "-o", "/Users/namtruong/Desktop/Projects/Linked_List_Project/Linked_List/main",
+                "-L/opt/homebrew/opt/googletest/lib",
+                "-lgtest",
+                "-lgtest_main",
+                "-pthread"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "Run Linked List Tests",
+            "dependsOn": "Build and Run Linked List Tests",
+            "type": "shell",
+            "command": "/Users/namtruong/Desktop/Projects/Linked_List_Project/Linked_List/main",
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        }
+    ]
+}
